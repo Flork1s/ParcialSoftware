@@ -18,7 +18,7 @@ async def create_curso(new_curso: CursoCreate, session:SessionDep):
 async def found_curso(curso_id:int, session:SessionDep):
     curso_db = session.get(Curso,curso_id)
     if not(curso_db):
-        raise HTTPException(status_code=404, detail="Curso nor found")
+        raise HTTPException(status_code=404, detail="Curso not found")
     return curso_db
 
 @router.get("/",response_model=list[Curso])

@@ -10,7 +10,22 @@ class CursoBase(SQLModel):
 
 class Curso(CursoBase, table = True):
     id: int | None = Field(default=None, primary_key=True)
+    student: list["Student"] = Relationship(back_populates="curso")
 
 
 class CursoCreate(CursoBase):
+    pass
+
+class StudentBase(SQLModel):
+    id: int | None = Field(description="cedula estudiante")
+    nombre: str | None = Field(description="nombre curso")
+    email: str | None = Field(description="email curso")
+    semestre: int | None = Field(description="semestre estudiante")
+
+class Student(StudentBase, table = True):
+    id: int | None = Field(default=None, primary_key=True)
+    curso: list["Curso"] = Relationship(back_populates="student")
+
+
+class StudentCreate(StudentBase):
     pass
