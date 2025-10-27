@@ -1,27 +1,43 @@
-from database import SessionDep
-from fastapi import APIRouter, HTTPException
-from models import StudentBase, Student, StudentCreate
+from fastapi import APIRouter, status
+from database import engine
+import crud
+from models import Student, StudentCreate, StudentUpdate, Curso
+from sqlmodel import Session
 
-router = APIRouter()
+router = APIRouter(prefix="/estudiantes", tags=["Estudiantes"])
 
-@router.post("/", response_model=Student,status_code=201)
-async def create_curso(new_curso: StudentCreate, session:SessionDep):
-    curso = Student.model_validate(new_curso)
-    session.add(curso)
-    session.commit()
-    session.refresh(curso)
-    return curso
+@router.post("/", response_model=Student, status_code=status.HTTP_201_CREATED)
+def crear(new_student: StudentCreate):
+    with Session(engine) as session:
+        return crud.crear_estudiante(session, new_student)
+
+@router.get("/", response_model=list[Student])
+def listar(semestre: int = None):
+    with Session(engine) as session:
+        return crud.listar_estudiantes(session, semestre)
+
+@router.get("/{cedula}", response_model=Student)
+def obtener(cedula: int):
+    with Session(engine) as session:
+        return crud.obtener_estudiante(session, cedula)
+
+@router.patch("/{cedula}", response_model=Student)
+def actualizar(cedula: int, datos: StudentUpdate):
+    with Session(engine) as session:
+        return crud.actualizar_estudiante(session, cedula, datos)
+
+@router.delete("/{cedula}")
+def eliminar(cedula: int):
+    with Session(engine) as session:
+        return crud.eliminar_estudiante(session, cedula)
+
+@router.get("/{cedula}/curso")
+def curso_de_estudiante(cedula: int):
+    with Session(engine) as session:
+        return crud.curso_de_estudiante(session, cedula)
 
 
-
-@router.get("/{id}",response_model=Student)
-async def found_curso(curso_id:int, session:SessionDep):
-    student_db = session.get(Student,curso_id)
-    if not(student_db):
-        raise HTTPException(status_code=404, detail="Student not found")
-    return student_db
-
-@router.get("/",response_model=list[Student])
-async def list_students(session:SessionDep):
-    students = session.query(Student).all()
-    return students
+@router.post("/{cedula}/desmatricular")
+def desmatricular(cedula: int):
+    with Session(engine) as session:
+        return crud.desmatricular_estudiante(session, cedula)
