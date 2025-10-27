@@ -1,31 +1,48 @@
-from sqlmodel import SQLModel, Relationship, Field
+from sqlmodel import SQLModel, Field, Relationship
+from typing import Optional, List
 from utils import Kind
 
+# --- MODELO CURSO ---
 class CursoBase(SQLModel):
-    id: int | None = Field(description="id curso")
-    nombre: str | None = Field(description="nombre curso")
-    credito: int | None = Field(description="credito curso")
-    kind: Kind | None = Field(description="kind curso", default= Kind.DesarrolloDeSoftware)
-    horario: str | None = Field(description="horario curso")
+    nombre: str
+    credito: int
+    kind: Kind = Kind.DesarrolloDeSoftware
+    horario: Optional[str] = None
 
-class Curso(CursoBase, table = True):
-    id: int | None = Field(default=None, primary_key=True)
-    student: list["Student"] = Relationship(back_populates="curso")
-
+class Curso(CursoBase, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    estudiantes: List["Student"] = Relationship(back_populates="cursos", link_model="Matricula")
 
 class CursoCreate(CursoBase):
     pass
 
+class CursoUpdate(SQLModel):
+    nombre: Optional[str] = None
+    credito: Optional[int] = None
+    kind: Optional[Kind] = None
+    horario: Optional[str] = None
+
+
+# --- MODELO ESTUDIANTE ---
 class StudentBase(SQLModel):
-    id: int | None = Field(description="cedula estudiante")
-    nombre: str | None = Field(description="nombre curso")
-    email: str | None = Field(description="email curso")
-    semestre: int | None = Field(description="semestre estudiante")
+    nombre: str
+    email: str
+    semestre: int
 
-class Student(StudentBase, table = True):
-    id: int | None = Field(default=None, primary_key=True)
-    curso: list["Curso"] = Relationship(back_populates="student")
-
+class Student(StudentBase, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    cursos: List[Curso] = Relationship(back_populates="estudiantes", link_model="Matricula")
 
 class StudentCreate(StudentBase):
     pass
+
+class StudentUpdate(SQLModel):
+    nombre: Optional[str] = None
+    email: Optional[str] = None
+    semestre: Optional[int] = None
+
+
+# --- TABLA INTERMEDIA (MATRÍCULA) ---
+class Matricula(SQLModel, table=True):
+    curso_id: int = Field(foreign_key="curso.id", primary_key=True)
+    estudiante_id: int = Field(foreign_key="student.id", primary_key=True)
