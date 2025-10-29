@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f11eb162-5593-446a-bba2-062d98e4b224" name="Changes" comment="realizacion del crud, mayor parte hecha revisar los criterios de aceptacion y el sistema de gestion">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+    <list default="true" id="f11eb162-5593-446a-bba2-062d98e4b224" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/router_estudiantes.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/router_estudiantes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,26 +47,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ParcialSoftware" type="Python.FastAPI">
       <option name="file" value="$PROJECT_DIR$/main.py" />
@@ -106,7 +102,7 @@
       <workItem from="1761492365839" duration="8981000" />
       <workItem from="1761589125194" duration="11854000" />
       <workItem from="1761661151360" duration="1635000" />
-      <workItem from="1761697348243" duration="3366000" />
+      <workItem from="1761697348243" duration="5382000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion parcial desarrollo de software">
       <option name="closed" value="true" />
@@ -172,7 +168,31 @@
       <option name="project" value="LOCAL" />
       <updated>1761613159730</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="agregamos el post para matricular un estudiante">
+      <option name="closed" value="true" />
+      <created>1761700999033</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761700999033</updated>
+    </task>
+    <task id="LOCAL-00010" summary="agregamos el post para matricular un estudiante">
+      <option name="closed" value="true" />
+      <created>1761701103921</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1761701103921</updated>
+    </task>
+    <task id="LOCAL-00011" summary="se realizo el matricular estudiantes en el archivo crud.py">
+      <option name="closed" value="true" />
+      <created>1761701310781</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1761701310781</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +207,8 @@
     <MESSAGE value="se realizo el nuevo crud se cambio un poco el databsase y el main y tambien se realizo los models con unos ajustes" />
     <MESSAGE value="realizacion de router_cursos y router_estudiantes cpn el post, get, patch y delete" />
     <MESSAGE value="realizacion del crud, mayor parte hecha revisar los criterios de aceptacion y el sistema de gestion" />
-    <option name="LAST_COMMIT_MESSAGE" value="realizacion del crud, mayor parte hecha revisar los criterios de aceptacion y el sistema de gestion" />
+    <MESSAGE value="agregamos el post para matricular un estudiante" />
+    <MESSAGE value="se realizo el matricular estudiantes en el archivo crud.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="se realizo el matricular estudiantes en el archivo crud.py" />
   </component>
 </project>

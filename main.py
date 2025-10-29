@@ -8,9 +8,10 @@ app = FastAPI(title="Sistema Universitario")
 
 create_tables()
 
-# Incluye los routers
-app.include_router(router_estudiantes)
+
 app.include_router(router_cursos)
+app.include_router(router_estudiantes)
+
 
 @app.get("/")
 def root():
