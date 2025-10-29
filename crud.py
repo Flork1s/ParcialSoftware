@@ -2,9 +2,6 @@ from fastapi import HTTPException
 from sqlmodel import Session, select
 from models import Curso, CursoCreate, CursoUpdate, Student, StudentCreate, StudentUpdate
 
-# =======================
-# 🟦 CRUD CURSOS
-# =======================
 
 def crear_curso(session: Session, data: CursoCreate):
     existente = session.query(Curso).filter(Curso.codigo == data.codigo).first()
@@ -83,9 +80,6 @@ def estudiantes_en_curso(session: Session, curso_id: int):
     return estudiantes
 
 
-# =======================
-# 🟩 CRUD ESTUDIANTES
-# =======================
 
 def crear_estudiante(session: Session, data: StudentCreate):
     existente = session.get(Student, data.cedula)
@@ -147,6 +141,31 @@ def eliminar_estudiante(session: Session, cedula: int):
     session.delete(estudiante)
     session.commit()
     return {"mensaje": "Estudiante eliminado correctamente"}
+
+
+def matricular_estudiante(session: Session, cedula: int, curso_id: int):
+    estudiante = session.query(Student).filter(Student.cedula == cedula).first()
+    if not estudiante:
+        raise HTTPException(status_code=404, detail="Estudiante no encontrado")
+
+    curso = session.get(Curso, curso_id)
+    if not curso:
+        raise HTTPException(status_code=404, detail="Curso no encontrado")
+
+    if estudiante.curso_id is not None and estudiante.curso_id != curso_id:
+        raise HTTPException(
+            status_code=409,
+            detail=f"El estudiante {estudiante.nombre} ya está matriculado en otro curso"
+        )
+
+    estudiante.curso_id = curso_id
+    session.add(estudiante)
+    session.commit()
+    session.refresh(estudiante)
+
+    return {
+        "mensaje": f"Estudiante {estudiante.nombre} matriculado en {curso.nombre}"
+    }
 
 
 
