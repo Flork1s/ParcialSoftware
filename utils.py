@@ -1,8 +1,8 @@
 from enum import Enum
 
 class Kind(str, Enum):
-    DesarrolloDeSoftware = "Desarrollo de Software"
-    Matemáticas = "Matemáticas"
-    Física = "Física"
-    Química = "Química"
+    CienciasBasicas = "Cienias Basicas"
+    Electiva = "Electiva"
+    Semillero = "Semillero"
+    Progamacion = "Progamacion"
     Otro = "Otro"

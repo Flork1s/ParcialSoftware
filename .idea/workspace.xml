@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f11eb162-5593-446a-bba2-062d98e4b224" name="Changes" comment="">
+    <list default="true" id="f11eb162-5593-446a-bba2-062d98e4b224" name="Changes" comment="invertimos los routers para que aparezcan primero el curso y despues el estudiante">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +103,7 @@
       <workItem from="1761589125194" duration="11854000" />
       <workItem from="1761661151360" duration="1635000" />
       <workItem from="1761697348243" duration="5382000" />
+      <workItem from="1761770461169" duration="2274000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion parcial desarrollo de software">
       <option name="closed" value="true" />
@@ -192,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761701310781</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="invertimos los routers para que aparezcan primero el curso y despues el estudiante">
+      <option name="closed" value="true" />
+      <created>1761770543027</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1761770543027</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +218,7 @@
     <MESSAGE value="realizacion del crud, mayor parte hecha revisar los criterios de aceptacion y el sistema de gestion" />
     <MESSAGE value="agregamos el post para matricular un estudiante" />
     <MESSAGE value="se realizo el matricular estudiantes en el archivo crud.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="se realizo el matricular estudiantes en el archivo crud.py" />
+    <MESSAGE value="invertimos los routers para que aparezcan primero el curso y despues el estudiante" />
+    <option name="LAST_COMMIT_MESSAGE" value="invertimos los routers para que aparezcan primero el curso y despues el estudiante" />
   </component>
 </project>
