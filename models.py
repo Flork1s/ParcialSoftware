@@ -7,7 +7,7 @@ class CursoBase(SQLModel):
     codigo: int = Field(description="Código único del curso")
     nombre: str
     credito: int
-    kind: Kind = Kind.DesarrolloDeSoftware
+    kind: Kind = Kind.Progamacion
     horario: Optional[str] = None
 
 class Curso(CursoBase, table=True):
