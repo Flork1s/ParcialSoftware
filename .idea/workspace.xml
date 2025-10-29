@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f11eb162-5593-446a-bba2-062d98e4b224" name="Changes" comment="se cambio el utils para que no sean kind materias si no kind facultad o tipo">
-      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
+    <list default="true" id="f11eb162-5593-446a-bba2-062d98e4b224" name="Changes" comment="Se realizo el cambio en el models para no tener probleams">
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +104,7 @@
       <workItem from="1761589125194" duration="11854000" />
       <workItem from="1761661151360" duration="1635000" />
       <workItem from="1761697348243" duration="5382000" />
-      <workItem from="1761770461169" duration="2593000" />
+      <workItem from="1761770461169" duration="2920000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion parcial desarrollo de software">
       <option name="closed" value="true" />
@@ -209,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761780098253</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Se realizo el cambio en el models para no tener probleams">
+      <option name="closed" value="true" />
+      <created>1761780132968</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1761780132968</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +237,7 @@
     <MESSAGE value="se realizo el matricular estudiantes en el archivo crud.py" />
     <MESSAGE value="invertimos los routers para que aparezcan primero el curso y despues el estudiante" />
     <MESSAGE value="se cambio el utils para que no sean kind materias si no kind facultad o tipo" />
-    <option name="LAST_COMMIT_MESSAGE" value="se cambio el utils para que no sean kind materias si no kind facultad o tipo" />
+    <MESSAGE value="Se realizo el cambio en el models para no tener probleams" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se realizo el cambio en el models para no tener probleams" />
   </component>
 </project>
