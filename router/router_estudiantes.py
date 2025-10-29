@@ -1,7 +1,7 @@
 from fastapi import APIRouter, status
 from database import engine
 import crud
-from models import Student, StudentCreate, StudentUpdate, Curso
+from models import Student, StudentCreate, StudentUpdate
 from sqlmodel import Session
 
 router = APIRouter(prefix="/estudiantes", tags=["Estudiantes"])
@@ -35,6 +35,13 @@ def eliminar(cedula: int):
 def curso_de_estudiante(cedula: int):
     with Session(engine) as session:
         return crud.curso_de_estudiante(session, cedula)
+
+
+# 🧾 Endpoint para matricular estudiante en un curso
+@router.post("/{cedula}/matricular/{curso_id}", status_code=status.HTTP_201_CREATED)
+def matricular_estudiante(cedula: int, curso_id: int):
+    with Session(engine) as session:
+        return crud.matricular_estudiante(session, cedula, curso_id)
 
 
 @router.post("/{cedula}/desmatricular")
