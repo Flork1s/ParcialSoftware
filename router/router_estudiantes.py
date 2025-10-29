@@ -37,7 +37,6 @@ def curso_de_estudiante(cedula: int):
         return crud.curso_de_estudiante(session, cedula)
 
 
-# 🧾 Endpoint para matricular estudiante en un curso
 @router.post("/{cedula}/matricular/{curso_id}", status_code=status.HTTP_201_CREATED)
 def matricular_estudiante(cedula: int, curso_id: int):
     with Session(engine) as session:
