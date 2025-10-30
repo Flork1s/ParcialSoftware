@@ -4,6 +4,16 @@ from models import Curso, CursoCreate, CursoUpdate, Student, StudentCreate, Stud
 
 
 def crear_curso(session: Session, data: CursoCreate):
+    """
+    Crea un nuevo curso.
+    Proceso:
+        1. Verifica si existe un curso con el mismo código.
+        2. Si existe, lanza un error 409.
+        3. Si no existe, crea el curso y lo guarda en la base de datos.
+
+    Retorna:
+        Curso: El curso creado.
+    """
     existente = session.query(Curso).filter(Curso.codigo == data.codigo).first()
     if existente:
         raise HTTPException(status_code=409, detail="Ya existe un curso con ese código")
@@ -16,6 +26,12 @@ def crear_curso(session: Session, data: CursoCreate):
 
 
 def listar_cursos(session: Session, credito: int = None, codigo: int = None):
+    """
+      Lista los cursos registrados, con opción de filtrar por crédito o código.
+      Retorna:
+          list[Curso]: Lista de cursos que coinciden con los filtros.
+          Si no se digitan estos campos se ddevuelven todos los cursos registrados.
+      """
     query = session.query(Curso)
     if credito is not None:
         query = query.filter(Curso.credito == credito)
@@ -29,6 +45,11 @@ def listar_cursos(session: Session, credito: int = None, codigo: int = None):
 
 
 def obtener_curso(session: Session, curso_id: int):
+    """
+    Obtiene la información de un curso específico por su ID.
+    Retorna:
+        Curso: Curso encontrado o error 404 si no existe.
+    """
     curso = session.get(Curso, curso_id)
     if not curso:
         raise HTTPException(status_code=404, detail="Curso no encontrado")
@@ -36,6 +57,11 @@ def obtener_curso(session: Session, curso_id: int):
 
 
 def actualizar_curso(session: Session, curso_id: int, data: CursoUpdate):
+    """
+    Actualiza los datos de un curso existente.
+    Retorna:
+        Curso: El curso actualizado.
+    """
     curso = session.get(Curso, curso_id)
     if not curso:
         raise HTTPException(status_code=404, detail="Curso no encontrado")
@@ -47,6 +73,10 @@ def actualizar_curso(session: Session, curso_id: int, data: CursoUpdate):
 
     for campo, valor in data.dict(exclude_unset=True).items():
         setattr(curso, campo, valor)
+        """ el setattr lo que hace es asignar un valor dinamicamente  que seria un atributo a un objeto
+            en este caso serian los datos que se quieren editar si es nombre el campo seria el curso.nombre
+            y el valor seria el nuevo digitado y asi lo asigna a cada uno de los campos 
+        """
 
     session.add(curso)
     session.commit()
@@ -55,6 +85,11 @@ def actualizar_curso(session: Session, curso_id: int, data: CursoUpdate):
 
 
 def eliminar_curso(session: Session, curso_id: int):
+    """
+    Elimina un curso por el id de la base de datos y desmatricula a sus estudiantes.
+    Retorna:
+        Mensaje de confirmación de eliminación.
+    """
     curso = session.get(Curso, curso_id)
     if not curso:
         raise HTTPException(status_code=404, detail="Curso no encontrado")
@@ -70,6 +105,11 @@ def eliminar_curso(session: Session, curso_id: int):
 
 
 def estudiantes_en_curso(session: Session, curso_id: int):
+    """
+     Lista todos los estudiantes matriculados en un curso por el id del curso.
+     Retorna:
+         list[Student]: Estudiantes matriculados en el curso.
+     """
     curso = session.get(Curso, curso_id)
     if not curso:
         raise HTTPException(status_code=404, detail="Curso no encontrado")
@@ -82,6 +122,11 @@ def estudiantes_en_curso(session: Session, curso_id: int):
 
 
 def crear_estudiante(session: Session, data: StudentCreate):
+    """
+    Crea un nuevo estudiante en la base de datos.
+    Retorna:
+        Student: Estudiante creado.
+    """
     existente = session.get(Student, data.cedula)
     if existente:
         raise HTTPException(status_code=409, detail="Ya existe un estudiante con esa cédula")
@@ -99,6 +144,12 @@ def crear_estudiante(session: Session, data: StudentCreate):
 
 
 def listar_estudiantes(session: Session, semestre: int = None):
+    """
+    Lista todos los estudiantes, con opción de filtrar por semestre si no se digita un semestre se muestran
+    todos los estudiantes en la base de datos.
+    Retorna:
+        list[Student]: Lista de estudiantes encontrados.
+    """
     query = session.query(Student)
     if semestre is not None:
         query = query.filter(Student.semestre == semestre)
@@ -110,6 +161,11 @@ def listar_estudiantes(session: Session, semestre: int = None):
 
 
 def obtener_estudiante(session: Session, cedula: int):
+    """
+    Obtiene la información de un estudiante por su cédula.
+    Retorna:
+        Student: Estudiante encontrado.
+    """
     estudiante = session.get(Student, cedula)
     if not estudiante:
         raise HTTPException(status_code=404, detail="Estudiante no encontrado")
@@ -117,6 +173,11 @@ def obtener_estudiante(session: Session, cedula: int):
 
 
 def actualizar_estudiante(session: Session, cedula: int, data: StudentUpdate):
+    """
+    Actualiza los datos de un estudiante.
+    Retorna:
+        Student: Estudiante actualizado.
+    """
     estudiante = session.get(Student, cedula)
     if not estudiante:
         raise HTTPException(status_code=404, detail="Estudiante no encontrado")
@@ -126,6 +187,10 @@ def actualizar_estudiante(session: Session, cedula: int, data: StudentUpdate):
 
     for campo, valor in data.dict(exclude_unset=True).items():
         setattr(estudiante, campo, valor)
+        """ el setattr lo que hace es asignar un valor dinamicamente  que seria un atributo a un objeto
+            en este caso serian los datos que se quieren editar si es nombre el campo seria el estudiante.nombre
+            y el valor seria el nuevo digitado y asi lo asigna a cada uno de los campos 
+        """
 
     session.add(estudiante)
     session.commit()
@@ -134,6 +199,11 @@ def actualizar_estudiante(session: Session, cedula: int, data: StudentUpdate):
 
 
 def eliminar_estudiante(session: Session, cedula: int):
+    """
+       Elimina un estudiante de la base de datos en este caso se busca por el id del curso.
+       Retorna:
+            Mensaje de confirmación de eliminación.
+       """
     estudiante = session.get(Student, cedula)
     if not estudiante:
         raise HTTPException(status_code=404, detail="Estudiante no encontrado")
@@ -144,6 +214,12 @@ def eliminar_estudiante(session: Session, cedula: int):
 
 
 def matricular_estudiante(session: Session, cedula: int, curso_id: int):
+    """
+    Matricula un estudiante en un curso siempre y cuado la cedula o el id delcurso exista y
+    que el estudiante no estre en otro curso ya matriculado.
+    Retorna:
+        Mensaje de matrícula exitosa.
+    """
     estudiante = session.query(Student).filter(Student.cedula == cedula).first()
     if not estudiante:
         raise HTTPException(status_code=404, detail="Estudiante no encontrado")
@@ -170,6 +246,11 @@ def matricular_estudiante(session: Session, cedula: int, curso_id: int):
 
 
 def desmatricular_estudiante(session: Session, cedula: int):
+    """
+    Desmatricula a un estudiante de su curso actual.
+    Retorna:
+        Mensaje de confirmación de desmatriculación.
+    """
     estudiante = session.get(Student, cedula)
     if not estudiante:
         raise HTTPException(status_code=404, detail="Estudiante no encontrado")
@@ -186,6 +267,11 @@ def desmatricular_estudiante(session: Session, cedula: int):
 
 
 def curso_de_estudiante(session: Session, cedula: int):
+    """
+    Obtiene la información del curso en el que está matriculado un estudiante.
+    Retorna:
+         Información del estudiante y su curso asignado.
+    """
     estudiante = session.get(Student, cedula)
     if not estudiante:
         raise HTTPException(status_code=404, detail="Estudiante no encontrado")

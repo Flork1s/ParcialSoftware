@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f11eb162-5593-446a-bba2-062d98e4b224" name="Changes" comment="Se realizo el cambio en el models para no tener probleams">
-      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+    <list default="true" id="f11eb162-5593-446a-bba2-062d98e4b224" name="Changes" comment="el cambio se realizo en utils porque se escribio mal ciencias basicas y se cambio el database_url y se elimino el anterior">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +104,9 @@
       <workItem from="1761589125194" duration="11854000" />
       <workItem from="1761661151360" duration="1635000" />
       <workItem from="1761697348243" duration="5382000" />
-      <workItem from="1761770461169" duration="2920000" />
+      <workItem from="1761770461169" duration="4390000" />
+      <workItem from="1761791928398" duration="362000" />
+      <workItem from="1761792515580" duration="596000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion parcial desarrollo de software">
       <option name="closed" value="true" />
@@ -218,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761780132968</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="el cambio se realizo en utils porque se escribio mal ciencias basicas y se cambio el database_url y se elimino el anterior">
+      <option name="closed" value="true" />
+      <created>1761780515059</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1761780515059</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +248,7 @@
     <MESSAGE value="invertimos los routers para que aparezcan primero el curso y despues el estudiante" />
     <MESSAGE value="se cambio el utils para que no sean kind materias si no kind facultad o tipo" />
     <MESSAGE value="Se realizo el cambio en el models para no tener probleams" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se realizo el cambio en el models para no tener probleams" />
+    <MESSAGE value="el cambio se realizo en utils porque se escribio mal ciencias basicas y se cambio el database_url y se elimino el anterior" />
+    <option name="LAST_COMMIT_MESSAGE" value="el cambio se realizo en utils porque se escribio mal ciencias basicas y se cambio el database_url y se elimino el anterior" />
   </component>
 </project>
