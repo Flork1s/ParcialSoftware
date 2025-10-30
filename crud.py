@@ -268,7 +268,7 @@ def desmatricular_estudiante(session: Session, cedula: int):
 
 def curso_de_estudiante(session: Session, cedula: int):
     """
-    Obtiene la información del curso en el que está matriculado un estudiante.
+    Obtiene la información del curso en el que está matriculado un estudiante por la cedula.
     Retorna:
          Información del estudiante y su curso asignado.
     """
